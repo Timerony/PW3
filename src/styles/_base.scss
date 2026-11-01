@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("/fonts/TTLakes-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("/fonts/TTLakes-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  font-weight: 500;
+  color: $color-text;
+  background: $color-bg;
+}
+
+.page__content {
+  padding: 24px 16px;
+
+  @include tablet {
+    padding: 32px 24px;
+  }
+
+  @include desktop {
+    padding: 45px 32px 32px;
+  }
+}
+
+// Ограничиваем ширину страницы на десктопе (от 1440px)
+.page {
+  @include desktop {
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+}

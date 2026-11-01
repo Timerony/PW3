@@ -1,0 +1,77 @@
+@use "../mixins" as *;
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  @include desktop {
+    gap: 28px;
+  }
+
+  &__text {
+    flex: 1;
+    font-size: 12px;
+    line-height: 1.5;
+
+    @include tablet {
+      line-height: 1.65;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 16px;
+  }
+
+  // Второй абзац: на мобилке скрыт, как в макете 320
+  &__paragraph--tablet {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  // Продолжение второго абзаца видно только на десктопе
+  &__extra {
+    display: none;
+
+    @include desktop {
+      display: inline;
+    }
+  }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  &__more-icon {
+    flex-shrink: 0;
+  }
+
+  &__image {
+    display: block;
+    width: calc(100% + 32px);
+    max-width: none;
+    height: auto;
+    margin: 0 -16px;
+
+    @include tablet {
+      width: 50%;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.tabs {
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // На десктопе вкладки не скроллятся, а переносятся на новую строку
+  @include desktop {
+    overflow-x: visible;
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include desktop {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: $color-text-muted;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include desktop {
+      padding: 12px 22px;
+    }
+
+    &--active {
+      border-color: $color-turquoise;
+    }
+  }
+}

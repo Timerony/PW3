@@ -1,0 +1,84 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 16px;
+  background: #fff;
+
+  @include tablet {
+    padding: 22px 24px;
+  }
+
+  &__divider {
+    flex-shrink: 0;
+    width: 1px;
+    height: 32px;
+    background: #e3e3e3;
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  &__button--tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  // Подписи у кнопок есть только на десктопе (от 1440px)
+  &__label {
+    display: none;
+    font-size: 12px;
+    white-space: nowrap;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  // Десктоп (от 1440px): в макете нет бургера, логотипа и лишних кнопок,
+  // остаются только две кнопки с подписями справа, на одной строке с заголовком
+  @include desktop {
+    position: absolute;
+    top: 43px;
+    right: 32px;
+    padding: 0;
+    background: transparent;
+
+    &__burger,
+    &__logo,
+    &__divider,
+    &__divider--tablet,
+    &__button--tablet {
+      display: none;
+    }
+
+    &__actions {
+      gap: 32px;
+      margin-left: 0;
+    }
+  }
+}
