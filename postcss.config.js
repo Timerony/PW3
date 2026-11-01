@@ -1,6 +1,6 @@
-import autoprefixer from "autoprefixer";
-import sortMediaQueries from "postcss-sort-media-queries";
+import autoprefixer from 'autoprefixer';
+import sortMediaQueries from 'postcss-sort-media-queries';
 
 export default {
-  plugins: [autoprefixer(), sortMediaQueries({ sort: "mobile-first" })],
+  plugins: [autoprefixer(), sortMediaQueries({ sort: 'mobile-first' })],
 };
