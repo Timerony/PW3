@@ -4,18 +4,29 @@
 .page-title {
   margin: 0 0 24px -16px;
   padding: 6px 0 6px 13px;
-  border-left: 3px solid $color-turquoise;
   font-size: 22px;
   line-height: 1.2;
   font-weight: 700;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background-color: $color-turquoise;
+    left: 0;
+    top: -4px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
 
   @include tablet {
     margin-left: -24px;
-    padding-left: 21px;
+    padding-left: 20px;
   }
 
   @include desktop {
     margin-left: -32px;
-    padding-left: 29px;
+    padding-left: 28px;
   }
 }
