@@ -19,17 +19,31 @@
   }
 
   &__divider {
+    display: none; // разделитель внутри блока кнопок: только с планшета
     flex-shrink: 0;
     width: 2px;
     height: 32px;
     border-radius: 1px;
     background: #eaeaea;
 
+    @include tablet {
+      display: block;
+    }
+
     &--tablet {
       display: none;
 
       @include tablet {
         display: block;
+      }
+    }
+
+    // Мобильный разделитель стоит рядом с логотипом и не уезжает вместе с кнопками
+    &--mobile {
+      display: block;
+
+      @include tablet {
+        display: none;
       }
     }
   }
@@ -80,6 +94,7 @@
     &__logo,
     &__divider,
     &__divider--tablet,
+    &__divider--mobile,
     &__button--tablet {
       display: none;
     }

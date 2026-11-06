@@ -1,11 +1,12 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
+// Полоска слева: 4px × 40px, цвет #41F6D7 (из макета)
 .page-title {
   margin: 0 0 24px -16px;
-  padding: 6px 0 6px 13px;
+  padding: 0 0 0 12px;
   font-size: 22px;
-  line-height: 1.2;
+  line-height: 40px;
   font-weight: 700;
   position: relative;
   &::before {
